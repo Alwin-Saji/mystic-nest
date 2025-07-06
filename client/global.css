@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 220 26% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 26% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 26% 14%;
+
+    --primary: 220 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 26% 14%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 26% 14%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Focus app specific colors */
+    --focus-primary: 220 70% 50%;
+    --focus-secondary: 260 60% 65%;
+    --focus-accent: 180 70% 60%;
+    --focus-warm: 30 80% 70%;
+    --focus-success: 140 70% 60%;
+    --focus-timer: 220 70% 50%;
+    --focus-waveform: 260 60% 65%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 27% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 27% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 27% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 220 70% 60%;
+    --primary-foreground: 220 27% 8%;
+
+    --secondary: 220 27% 16%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 27% 16%;
+    --muted-foreground: 220 9% 60%;
+
+    --accent: 220 27% 16%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 27% 20%;
+    --input: 220 27% 20%;
+    --ring: 220 70% 60%;
+
+    /* Focus app specific colors - dark theme */
+    --focus-primary: 220 70% 60%;
+    --focus-secondary: 260 60% 70%;
+    --focus-accent: 180 70% 65%;
+    --focus-warm: 30 80% 75%;
+    --focus-success: 140 70% 65%;
+    --focus-timer: 220 70% 60%;
+    --focus-waveform: 260 60% 70%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--focus-primary));
+  }
+
+  /* Focus ring improvements */
+  *:focus {
+    outline: 2px solid hsl(var(--focus-primary));
+    outline-offset: 2px;
+  }
+
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button,
+  input,
+  textarea,
+  select {
+    transition: all 0.2s ease-in-out;
+  }
+}
