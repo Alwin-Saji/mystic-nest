@@ -4,7 +4,7 @@ import path from "path";
 
 // GitHub Pages specific Vite config
 export default defineConfig({
-  base: "/focvus/", // Change this to your repo name if deploying to username.github.io/repo-name
+  base: "/mystic-nest/", // Change this to your repo name if deploying to username.github.io/repo-name
   build: {
     outDir: "dist",
     assetsDir: "assets",
